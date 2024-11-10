@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 const QuestionSchemea = mongoose.Schema({
     comfort: {
-        type: String,
+        type: Number,
         required: true
     },
     looks: {
-        type: String,
+        type: Number,
         require: true
     },
     price: {
-        type: String,
+        type: Number,
         require: true
     }
 });

@@ -3,11 +3,12 @@ const app = express();
 const PORT = 5000
 require('./database');
 const bodyParser = require('body-parser');
-const ApiRoute = require("./routes/index.js");
+const ApiRoute = require("./routes/storeData.js");
 const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "*"); // Replace '*' with your app's domain or whitelist specific domains
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
         "Access-Control-Allow-Methods",
         "GET, POST, PUT, DELETE, OPTIONS"
@@ -17,6 +18,9 @@ app.use(function (req, res, next) {
         "Content-Type, Authorization, authtoken"
     );
     next();
+});
+app.get('/', (req, res) => {
+    res.send("Hello! Your server is running.");
 });
 app.use("/api", ApiRoute);
 const start = () => {
