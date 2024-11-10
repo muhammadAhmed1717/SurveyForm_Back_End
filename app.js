@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 5000
+require('./database')
 const start = () => {
     try{
         app.listen(PORT, () => {
